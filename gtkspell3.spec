@@ -9,14 +9,16 @@ License:	GPL
 Group:		X11/Libraries
 Source0:	http://gtkspell.sourceforge.net/download/%{name}-%{version}.tar.gz
 # Source0-md5:	861c7188dbcc89dc24744d47102c4b18
+Patch0:		%{name}-am.patch
 URL:		http://gtkspell.sourceforge.net/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	enchant-devel >= 0.4.0
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+3-devel
-BuildRequires:	gtk-doc >= 1.6
+BuildRequires:	gobject-introspection-devel >= 1.30.0
+BuildRequires:	gtk+3-devel >= 3
+BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.3
@@ -39,7 +41,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla gtkspella
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	enchant-devel >= 0.4.0
-Requires:	gtk+3-devel
+Requires:	gtk+3-devel >= 3
 
 %description devel
 Header files for GtkSpell API version 3.0.
@@ -73,6 +75,7 @@ Dokumentacja API gtkspell.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -115,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libgtkspell3-3.so
+%attr(755,root,root) %{_libdir}/libgtkspell3-3.so
 %{_includedir}/gtkspell-3.0
 %{_pkgconfigdir}/gtkspell3-3.0.pc
 %{_datadir}/gir-1.0/GtkSpell-3.0.gir
