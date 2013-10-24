@@ -27,7 +27,7 @@ BuildRequires:	iso-codes
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.3
 BuildRequires:	pkgconfig
-%{?with_vala:BuildRequires:	vala >= 2:0.17.0}
+%{?with_vala:BuildRequires:	vala >= 2:0.18.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
