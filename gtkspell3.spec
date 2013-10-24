@@ -1,15 +1,18 @@
 # TODO
 # - gtk+2 bindings possible besides gtk+3 as well
+#
+# Conditional build:
+%bcond_without	vala		# do not build Vala API
+#
 Summary:	GTK+ Spell Checker Interface Library
 Summary(pl.UTF-8):	Biblioteka z interfejsem do narzędzia sprawdzającego pisownię dla GTK+
 Name:		gtkspell3
-Version:	3.0.1
+Version:	3.0.4
 Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://gtkspell.sourceforge.net/download/%{name}-%{version}.tar.gz
-# Source0-md5:	861c7188dbcc89dc24744d47102c4b18
-Patch0:		%{name}-am.patch
+# Source0-md5:	d25b547507940738cf016936c3452113
 URL:		http://gtkspell.sourceforge.net/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
@@ -20,9 +23,11 @@ BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk+3-devel >= 3
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.35.0
+BuildRequires:	iso-codes
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.13.3
 BuildRequires:	pkgconfig
+%{?with_vala:BuildRequires:	vala >= 2:0.17.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,9 +78,21 @@ GtkSpell API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API gtkspell.
 
+%package -n vala-%{name}
+Summary:	GtkSpell API for Vala language
+Summary(pl.UTF-8):	API GtkSpell dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 2:0.18.0
+
+%description -n vala-%{name}
+GtkSpell API for Vala language.
+
+%description -n vala-%{name} -l pl.UTF-8
+API GtkSpell dla języka Vala.
+
 %prep
-%setup -q -n %{name}-%{version}
-%patch0 -p1
+%setup -q
 
 %build
 %{__gtkdocize}
@@ -130,3 +147,10 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gtkspell3
+
+%if %{with vala}
+%files -n vala-%{name}
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/gtkspell3-3.0.deps
+%{_datadir}/vala/vapi/gtkspell3-3.0.vapi
+%endif
