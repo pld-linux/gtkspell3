@@ -18,7 +18,7 @@ BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	enchant-devel >= 0.4.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk+3-devel >= 3
 BuildRequires:	gtk-doc >= 1.14
