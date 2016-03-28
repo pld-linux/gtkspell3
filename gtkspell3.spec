@@ -3,7 +3,7 @@
 #
 # Conditional build:
 %bcond_without	vala		# do not build Vala API
-#
+
 Summary:	GTK+ Spell Checker Interface Library
 Summary(pl.UTF-8):	Biblioteka z interfejsem do narzędzia sprawdzającego pisownię dla GTK+
 Name:		gtkspell3
@@ -84,6 +84,9 @@ Summary(pl.UTF-8):	API GtkSpell dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.18.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-%{name}
 GtkSpell API for Vala language.
