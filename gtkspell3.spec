@@ -8,7 +8,7 @@ Summary:	GTK+ Spell Checker Interface Library
 Summary(pl.UTF-8):	Biblioteka z interfejsem do narzędzia sprawdzającego pisownię dla GTK+
 Name:		gtkspell3
 Version:	3.0.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://gtkspell.sourceforge.net/download/%{name}-%{version}.tar.gz
@@ -71,6 +71,9 @@ Summary:	GtkSpell API documentation
 Summary(pl.UTF-8):	Dokumentacja API gtkspell
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 GtkSpell API documentation.
