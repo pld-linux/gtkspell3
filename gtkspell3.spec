@@ -121,7 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libgtkspell3-3.la
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ak
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/son
 
 %find_lang %{name}
