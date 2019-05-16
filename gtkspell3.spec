@@ -7,17 +7,17 @@
 Summary:	GTK+ 3 Spell Checker Interface Library
 Summary(pl.UTF-8):	Biblioteka z interfejsem do narzędzia sprawdzającego pisownię dla GTK+ 3
 Name:		gtkspell3
-Version:	3.0.9
+Version:	3.0.10
 Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://downloads.sourceforge.net/gtkspell/%{name}-%{version}.tar.xz
-# Source0-md5:	22c6c44c7cbebfc02e6255cc151a7967
+# Source0-md5:	34ece0c8cd0f68e6e125624ec0953cba
 URL:		http://gtkspell.sourceforge.net/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake
 BuildRequires:	docbook-dtd42-xml
-BuildRequires:	enchant-devel >= 0.4.0
+BuildRequires:	enchant2-devel >= 2
 BuildRequires:	gettext-tools
 BuildRequires:	gobject-introspection-devel >= 1.30.0
 %{?with_gtk2:BuildRequires:	gtk+2-devel >= 1:2.0}
@@ -25,8 +25,7 @@ BuildRequires:	gobject-introspection-devel >= 1.30.0
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	iso-codes
-BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.13.3
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 %{?with_vala:BuildRequires:	vala >= 2:0.18.0}
 BuildRequires:	tar >= 1:1.22
@@ -54,7 +53,7 @@ Summary(pl.UTF-8):	Pliki programistyczne biblioteki GtkSpell3 dla GTK+ 3
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-common-devel = %{version}-%{release}
-Requires:	enchant-devel >= 0.4.0
+Requires:	enchant2-devel >= 2
 Requires:	gtk+3-devel >= 3.0
 
 %description devel
