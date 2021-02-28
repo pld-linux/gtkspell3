@@ -80,9 +80,7 @@ Summary(pl.UTF-8):	API GtkSpell3 dla języka Vala (wersja dla GTK+ 3)
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.18.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-%{name}
 GtkSpell3 API for Vala language (GTK+ 3 variant).
@@ -143,9 +141,7 @@ Summary(pl.UTF-8):	API GtkSpell3 dla języka Vala (wersja dla GTK+ 2)
 Group:		Development/Libraries
 Requires:	%{name}-gtk2-devel = %{version}-%{release}
 Requires:	vala >= 2:0.18.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-%{name}-gtk2
 GtkSpell3 API for Vala language (GTK+ 2 variant).
@@ -158,9 +154,7 @@ Summary:	Common files for GtkSpell3 libraries
 Summary(pl.UTF-8):	Pliki wspólne bibliotek GtkSpell3
 Group:		Libraries
 Conflicts:	gtkspell3 < 3.0.9
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description common
 Common files for GtkSpell3 libraries.
@@ -173,9 +167,7 @@ Summary:	Common headers for GtkSpell3 libraries
 Summary(pl.UTF-8):	Wspólne pliki nagłówkowe bibliotek GtkSpell3
 Group:		Development/Libraries
 Requires:	%{name}-common = %{version}-%{release}
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description common-devel
 Common headers for GtkSpell3 libraries.
@@ -188,9 +180,7 @@ Summary:	GtkSpell API documentation
 Summary(pl.UTF-8):	Dokumentacja API gtkspell
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 GtkSpell API documentation.
